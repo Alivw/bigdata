@@ -1,0 +1,38 @@
+version: "3.9"
+networks:
+  hadoop:
+    external: true
+services:
+  node01:
+    image: jalivv/hive:1.0.0
+    hostname: node01
+    container_name: node01
+    ports:
+      - "8088:8088"
+      - "50070:50070"
+    networks:
+      - hadoop
+  node02:
+    image: jalivv/hive:1.0.0
+    hostname: "node02"
+    container_name: node02
+    networks:
+      - hadoop
+
+  node03:
+    image: jalivv/hive:1.0.0
+    hostname: node03
+    container_name: node03
+    networks:
+      - hadoop
+
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    networks:
+      - hadoop
