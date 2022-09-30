@@ -18,6 +18,9 @@ services:
     container_name: node02
     networks:
       - hadoop
+    volumes:
+      - ./hive/metastore-client:/usr/local/hive/conf/
+      - ./hive/data:/root/data/
 
   node03:
     image: jalivv/hive:1.0.0
@@ -25,6 +28,8 @@ services:
     container_name: node03
     networks:
       - hadoop
+    volumes:
+      - ./hive/metastore-server:/usr/local/hive/conf/
 
 
   mysql:
