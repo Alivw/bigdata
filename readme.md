@@ -16,8 +16,12 @@
 
 
 
-## 外链
+## hive官方文档
 
-[metastoreServer](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration#AdminManualMetastoreAdministration-Local/EmbeddedMetastoreServer)
 
-[恢复分区](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE))
+
+[Hive Metastore Administration](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration#AdminManualMetastoreAdministration-HiveMetastoreAdministration)
+
+[Remote Metastore Database](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration#AdminManualMetastoreAdministration-Local/EmbeddedMetastoreServer)
+
+[Recover Partitions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE))
