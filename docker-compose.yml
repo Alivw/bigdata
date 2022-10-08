@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   node01:
-    image: jalivv/hive:1.0.0
+    image: jalivv/hive:1.0.1
     hostname: node01
     container_name: node01
     ports:
@@ -12,26 +12,31 @@ services:
       - "50070:50070"
     networks:
       - hadoop
+    volumes:
+      - ./hive/metastore-client:/usr/local/hive/conf/
+      - ./hive/hdfs-tmp-dir/node01:/usr/local/hadoop-data/tmp
+      - ./hive/hdfs-conf:/usr/local/hadoop/etc/hadoop  
   node02:
-    image: jalivv/hive:1.0.0
+    image: jalivv/hive:1.0.1
     hostname: "node02"
     container_name: node02
     networks:
       - hadoop
     volumes:
       - ./hive/metastore-client:/usr/local/hive/conf/
+      - ./hive/hdfs-tmp-dir/node02:/usr/local/hadoop-data/tmp
+      - ./hive/hdfs-conf:/usr/local/hadoop/etc/hadoop  
       - ./hive/data:/root/data/
-
   node03:
-    image: jalivv/hive:1.0.0
+    image: jalivv/hive:1.0.1
     hostname: node03
     container_name: node03
     networks:
       - hadoop
     volumes:
       - ./hive/metastore-server:/usr/local/hive/conf/
-
-
+      - ./hive/hdfs-tmp-dir/node03:/usr/local/hadoop-data/tmp
+      - ./hive/hdfs-conf:/usr/local/hadoop/etc/hadoop  
   mysql:
     image: mysql:5.7
     container_name: mysql
@@ -41,3 +46,5 @@ services:
       MYSQL_ROOT_PASSWORD: "root"
     networks:
       - hadoop
+    volumes:
+      - ./hive/mysql-data:/var/lib/mysql
