@@ -25,3 +25,7 @@
 [Remote Metastore Database](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Metastore+Administration#AdminManualMetastoreAdministration-Local/EmbeddedMetastoreServer)
 
 [Recover Partitions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE))
+
+[[LanguageManual DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)
+
+[[LanguageManual DML](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML)
