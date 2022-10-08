@@ -1,0 +1,1 @@
+wjobId=job_1665206227417_0002,submitTime=1665209582010,launchTime=1665209583867,firstMapTaskLaunchTime=1665209585978,firstReduceTaskLaunchTime=0,finishTime=1665209588006,resourcesPerMap=1024,resourcesPerReduce=0,numMaps=1,numReduces=0,user=root,queue=default,status=SUCCEEDED,mapSlotSeconds=2,reduceSlotSeconds=0,jobName=from psn\ninsert overwrite table psn9 \ns...id(Stage-2)
