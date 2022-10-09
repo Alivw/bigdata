@@ -1,0 +1,87 @@
+
+create external table psn
+(
+  id int,
+  name string,
+  likes array<string>,
+  address map<string,string>
+)
+row format delimited
+fields terminated by ','
+collection items terminated by '-'
+map keys terminated by ':'
+location '/data'
+;
+
+create table psn5
+(
+  id int,
+  name string,
+  likes array<string>,
+  address map<string,string>
+)
+partitioned by (gender string,age int)
+row format delimited
+fields terminated by ','
+collection items terminated by '-'
+map keys terminated by ':'
+;
+
+
+
+create external table psn7
+(
+  id int,
+  name string,
+  likes array<string>,
+  address map<string,string>
+)
+partitioned by (age int)
+row format delimited
+fields terminated by ','
+collection items terminated by '-'
+map keys terminated by ':'
+location '/msb'
+;
+
+
+load data local inpath '/root/data/data' into table psn5 partition(gender='boy');
+load data local inpath '/root/data/data' into table psn5 partition(gender='man',age=18);
+
+1,xiaoming1,lol-book-movie,beijing:mashibing-shanghai:pudong
+2,xiaoming2,lol-book-movie,beijing:mashibing-shanghai:pudong
+3,zhan3,lol-book-movie,beijing:mashibing-shanghai:pudong
+4,lisi3,lol-book-movie,beijing:mashibing-shanghai:pudong
+5,zs,lol-book-movie,beijing:mashibing-shanghai:pudong
+6,lisii,lol-movie,beijing:mashibing-shanghai:pudong
+7,creep,lol-book,beijing:mashibing-shanghai:pudong
+8,gouba,lol-book-movie,beijing:mashibing-shanghai:pudong
+9,kunba,lol-book-movie,beijing:mashibing-shanghai:pudong
+
+---------------------------------DML---------------------------------
+create table psn9
+(
+  id int,
+  name string
+)
+row format delimited
+fields terminated by ','
+collection items terminated by '-'
+map keys terminated by ':'
+;
+
+INSERT OVERWRITE TABLE psn9 SELECT id,name from psn;
+
+---------------------------------插入---------------------------------
+create table psn10
+(
+  id int
+);
+
+from psn
+insert overwrite table psn9 
+select id,name
+insert into table psn10 
+select id;
+
+
